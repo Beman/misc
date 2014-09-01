@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Begin testing..."
+b2 --v2 --dump-tests toolset=gcc,clang >b2.log 2>&1
+
+echo "Begin b2.log processing..."
+process_jam_log --v2 <b2.log
+gedit b2.log &
+
+echo "Begin report generation..."
+compiler_status --v2 . test_status.html test_links.html
+firefox test_status.html &
+
