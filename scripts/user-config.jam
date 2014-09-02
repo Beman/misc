@@ -1,0 +1,15 @@
+# toolset=gcc-11
+using gcc : 11 : /usr/bin/g++ : <cxxflags>"-std=c++11" ;
+
+# toolset=gcc-03  
+using gcc : 03 : /usr/bin/g++ ;                           
+
+# toolset=clang-libstdcpp
+using clang : libstdcpp : /usr/bin/clang++ : <cxxflags>"-std=c++11" ;
+
+# toolset=clang-libcpp
+using clang : libcpp : /usr/bin/clang++
+ : <cxxflags>"-std=c++11 -stdlib=libc++" <linkflags>"-stdlib=libc++" ; 
+  
+import toolset : using ;
+
